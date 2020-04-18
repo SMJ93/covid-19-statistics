@@ -1,12 +1,8 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
-import { Home, Country } from '../pages';
-import { AppContainer } from './styles';
+import {Home, Country} from '../pages';
+import {AppContainer} from './styles';
 
 function App() {
   return (

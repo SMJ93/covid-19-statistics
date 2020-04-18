@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import { useTable, useSortBy } from 'react-table'
+import React, {useEffect, useState} from 'react';
 
-import getData from '../../services'
-import CountryRow from './CountryRow'
-import LoadingSpinner from '../LoadingSpinner'
+import getData from '../../services';
+import CountryRow from './CountryRow';
+import LoadingSpinner from '../LoadingSpinner';
 
 export default function AllCountriesTable() {
-  const [data, setData] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getAllCountriesData()
-  }, [])
+    getAllCountriesData();
+  }, []);
 
   // const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable(
   //   {
@@ -21,18 +20,16 @@ export default function AllCountriesTable() {
   //  useSortBy
   // )
 
-  const getAllCountriesData = async() => {
-    setLoading(true)
-    const response = await getData(setLoading)
-    setData(response)
-    setLoading(false)
-  }
+  const getAllCountriesData = async () => {
+    setLoading(true);
+    const response = await getData(setLoading);
+    setData(response);
+    setLoading(false);
+  };
 
-  // @todo linter
-  // @todo prettier
   // @todo table
 
-  console.log("DATA", data)
+  // console.log('DATA', data);
 
   return (
     <div>
@@ -42,5 +39,5 @@ export default function AllCountriesTable() {
         <CountryRow key={index} country={country} />
       ))}
     </div>
-  )
+  );
 }

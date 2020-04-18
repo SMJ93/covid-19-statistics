@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-import {useParams} from "react-router-dom";
+import {useParams} from 'react-router-dom';
 
 export default function Home() {
-  const { countryCode } = useParams();
+  const {countryCode} = useParams();
   return (
     <div>
       <p>Todo {countryCode}</p>
     </div>
-  )
+  );
 }
