@@ -3,10 +3,11 @@ import { useTable, useSortBy } from 'react-table'
 
 import getData from '../../services'
 import CountryRow from './CountryRow'
+import LoadingSpinner from '../LoadingSpinner'
 
 export default function AllCountriesTable() {
   const [data, setData] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     getAllCountriesData()
@@ -27,15 +28,16 @@ export default function AllCountriesTable() {
     setLoading(false)
   }
 
-  // @todo styled components
   // @todo linter
   // @todo prettier
+  // @todo table
 
   console.log("DATA", data)
 
   return (
     <div>
-      <p>Summary: {loading}</p>
+      <h1>Country deaths per population percentage</h1>
+      {loading && <LoadingSpinner />}
       {data.map((country, index) => (
         <CountryRow key={index} country={country} />
       ))}

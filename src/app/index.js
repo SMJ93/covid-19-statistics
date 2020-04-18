@@ -5,12 +5,12 @@ import {
   Route
 } from "react-router-dom";
 
-import './index.css';
 import { Home, Country } from '../pages';
+import { AppContainer } from './styles';
 
 function App() {
   return (
-    <div className="App">
+    <AppContainer>
       <Router>
         <Switch>
           <Route path="/country/:countryCode">
@@ -21,7 +21,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </div>
+    </AppContainer>
   );
 }
 

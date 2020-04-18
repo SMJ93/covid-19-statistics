@@ -11,18 +11,14 @@ export default async function getData() {
     const json = await response.json()
     if (json.data && json.data.length > 0) {
       const formattedData = json.data.map((country) => {
-        const {name, code, population, updated_at, latest_data: {deaths}} = country
+        const {population, latest_data: {deaths}} = country
         const hasDeathAndPopulationState = !!deaths && !!population
         const deathsPerPopulation = hasDeathAndPopulationState ? deaths / population : 0
         const deathsPerPopulationPercentage = deathsPerPopulation * 100
         const deathsPerMillion = deathsPerPopulation * 1000000
         const deathsPerHundredThousand = deathsPerPopulation * 100000
         return {
-          name,
-          code,
-          updated_at,
-          population,
-          deaths,
+          ...country,
           deathsPerPopulation,
           deathsPerPopulationPercentage,
           deathsPerMillion,
