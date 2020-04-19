@@ -3,7 +3,7 @@ import {useTable, useSortBy} from 'react-table';
 import {Link} from 'react-router-dom';
 import emojiFlags from 'emoji-flags';
 
-import getData from '../../api';
+import {getAllCountries} from '../../api';
 import {LoadingSpinner} from '../../component-library';
 import {TableContainer} from './styles';
 
@@ -18,7 +18,7 @@ export default function AllCountriesTable() {
   const columns = useMemo(
     () => [
       {
-        Header: 'All Countries',
+        Header: 'Covid-19 Death per Capita',
         columns: [
           {
             Header: 'Flag',
@@ -77,14 +77,13 @@ export default function AllCountriesTable() {
 
   const getAllCountriesData = async () => {
     setLoading(true);
-    const response = await getData(setLoading);
+    const response = await getAllCountries(setLoading);
     setData(response);
     setLoading(false);
   };
 
   return (
     <div>
-      <h1>Covid-19 Death per Capita</h1>
       {loading && <LoadingSpinner />}
       {data && data.length > 0 && (
         <TableContainer>

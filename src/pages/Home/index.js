@@ -1,11 +1,11 @@
 import React from 'react';
 
-import {AllCountriesTable} from '../../components';
+import {AllCountriesTable, Page} from '../../components';
 
 export default function Home() {
   return (
-    <div>
+    <Page>
       <AllCountriesTable />
-    </div>
+    </Page>
   );
 }

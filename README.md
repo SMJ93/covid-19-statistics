@@ -6,11 +6,15 @@ Special thanks to [about-corona.net](https://about-corona.net/documentation) for
 
 ## Roadmap 🗺️
 
-- Refactor `AllCountriesTable` into separate components
-- Country screen
+- Fix home page table sorting
+- Format timeline data and add graph of timeline to countries screen
+- Refactor `AllCountriesTable` to `Table` so its more modular
+  - Move get request to home screen, then we can re-use for favourites table
 - Make it look pretty
+- Favourite countries
+- Filter which fields you want to see on home screen
 
-## Running locally
+## Running locally 🛠️
 
 ### `yarn`
 
@@ -24,7 +28,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-## Deployments
+## Deployments 🚀
 
 ### `yarn deploy`
 
