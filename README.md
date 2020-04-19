@@ -1,5 +1,7 @@
 # Covid-19 Statistics 📊
 
+[https://covid-19-statistics-fa1d6.web.app/](https://covid-19-statistics-fa1d6.web.app/)
+
 The purpose of this web app is to provide up to date Covid-19 statistics, including deaths per capita.
 
 Special thanks to [about-corona.net](https://about-corona.net/documentation) for their api.
@@ -33,6 +35,14 @@ Builds the app for production to the `build` folder. It bundles React in product
 
 To deploy the app we use [Firebase deploy](https://firebase.google.com/docs/hosting/deploying).
 
-Once deployed, the updates will be visible here:
+Once deployed, the updates will be visible [here](https://covid-19-statistics-fa1d6.web.app/).
 
-[https://covid-19-statistics-fa1d6.web.app/](https://covid-19-statistics-fa1d6.web.app/)
+## Screenshots 📷
+
+### Home Page
+
+![home](docs/home.png)
+
+### Country Page
+
+![home](docs/uk.png)
