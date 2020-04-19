@@ -64,10 +64,10 @@ export default function Home() {
             Deaths per population (%): {data.totalDeathsPerPopulationPercentage}
           </p>
           <p>
-            Deaths per one hundred thousand people :{' '}
+            Deaths per one hundred thousand people:{' '}
             {data.totalDeathsPerHundredThousand}
           </p>
-          <p>Deaths per million people : {data.totalDeathsPerMillion}</p>
+          <p>Deaths per million people: {data.totalDeathsPerMillion}</p>
         </>
       )}
     </Page>

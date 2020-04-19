@@ -2,7 +2,7 @@ import React from 'react';
 import {useHistory, useRouteMatch} from 'react-router-dom';
 
 import {GitHubLogo} from '../../assets/images';
-import {Header, OuterColumn, HeaderContainer} from './styles';
+import {Header, OuterColumn, HeaderContainer, BackButton} from './styles';
 
 export default function HeaderComponent() {
   const history = useHistory();
@@ -14,11 +14,11 @@ export default function HeaderComponent() {
   return (
     <Header>
       <HeaderContainer>
-        <OuterColumn>
+        <OuterColumn left>
           {showBackHomeButton && (
-            <button type="button" onClick={goHome}>
+            <BackButton type="button" onClick={goHome}>
               Back
-            </button>
+            </BackButton>
           )}
         </OuterColumn>
         <h1>Covid-19 Statistics</h1>

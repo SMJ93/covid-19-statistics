@@ -26,3 +26,18 @@ export const OuterColumn = styled.div`
   justify-content: center;
   text-align: ${(props) => (props.left ? 'left' : 'right')};
 `;
+
+export const BackButton = styled.button`
+  background-color: ${colors.greys.white};
+  border: none;
+  color: ${colors.primary.default};
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+
+  :hover {
+    text-decoration: underline;
+  }
+`;
