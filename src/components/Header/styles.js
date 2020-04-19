@@ -19,15 +19,10 @@ export const HeaderContainer = styled.div`
   padding: 30px;
   color: ${colors.greys.white};
   margin: auto;
-
-  a {
-    color: ${colors.greys.white};
-    font-weight: bold;
-  }
 `;
 
 export const OuterColumn = styled.div`
-  width: 120px;
+  width: 100px;
   justify-content: center;
-  align-items: ${(props) => (props.left ? 'flex-start' : 'flex-end')};
+  text-align: ${(props) => (props.left ? 'left' : 'right')};
 `;

@@ -29,12 +29,14 @@ export default function AllCountriesTable() {
             Header: 'Country',
             accessor: 'name',
             Cell: ({row}) => (
-              <Link
-                to={{
-                  pathname: '/country/' + `${row.values.code}`,
-                }}>
-                {`${emojiFlags[row.values.code].emoji}${row.values.name}`}
-              </Link>
+              <div className="link-container">
+                <Link
+                  to={{
+                    pathname: '/country/' + `${row.values.code}`,
+                  }}>
+                  {`${emojiFlags[row.values.code].emoji}${row.values.name}`}
+                </Link>
+              </div>
             ),
           },
           {
@@ -86,7 +88,7 @@ export default function AllCountriesTable() {
   };
 
   return (
-    <div>
+    <>
       {loading && <LoadingSpinner />}
       {data && data.length > 0 && (
         <>
@@ -133,6 +135,6 @@ export default function AllCountriesTable() {
           </TableContainer>
         </>
       )}
-    </div>
+    </>
   );
 }

@@ -7,14 +7,14 @@ import {
 } from 'react-router-dom';
 
 import {Home, Country} from '../pages';
-import {Header} from '../components';
-import {AppContainer} from './styles';
+import {Header, Footer} from '../components';
+import {AppContainer, FullHeight} from './styles';
 
 function App() {
   return (
     <AppContainer>
       <Router>
-        <div>
+        <FullHeight>
           <Header />
           <Switch>
             <Route path="/country/:countryCode">
@@ -25,7 +25,8 @@ function App() {
             </Route>
             <Redirect from="*" to="/home" />
           </Switch>
-        </div>
+          <Footer />
+        </FullHeight>
       </Router>
     </AppContainer>
   );

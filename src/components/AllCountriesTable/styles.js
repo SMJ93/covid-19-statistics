@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 
 export const TableContainer = styled.div`
-  padding: 1rem;
-
   table {
     border-spacing: 0;
     border: 1px solid black;
+
+    @media (max-width: 630px) {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
 
     tr {
       :last-child {
@@ -26,18 +30,12 @@ export const TableContainer = styled.div`
         border-right: 0;
       }
     }
-
-    td {
-      input {
-        font-size: 1rem;
-        padding: 0;
-        margin: 0;
-        border: 0;
-      }
-    }
   }
 
-  .pagination {
-    padding: 0.5rem;
+  .link-container {
+    width: 100px;
+    @media (min-width: 800px) {
+      width: 200px;
+    }
   }
 `;
