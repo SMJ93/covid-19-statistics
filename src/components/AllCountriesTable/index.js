@@ -4,7 +4,6 @@ import emojiFlags from 'emoji-flags';
 
 import getData from '../../api';
 import {LoadingSpinner} from '../../component-library';
-import {numberWithCommas} from '../../helpers';
 import {TableContainer} from './styles';
 
 export default function AllCountriesTable() {
@@ -84,7 +83,7 @@ export default function AllCountriesTable() {
       {loading && <LoadingSpinner />}
       {data && data.length > 0 && (
         <TableContainer>
-          <table {...getTableProps()}>
+          <table {...getTableProps()} align="center">
             <thead>
               {headerGroups.map((headerGroup, i) => (
                 <tr key={i} {...headerGroup.getHeaderGroupProps()}>
@@ -115,7 +114,7 @@ export default function AllCountriesTable() {
                         <td key={k} {...cell.getCellProps()}>
                           {cell.column.id === 'name' &&
                             emojiFlags[cell.row.values.code].emoji}
-                          {numberWithCommas(cell.value)}
+                          {cell.value}
                         </td>
                       );
                     })}
