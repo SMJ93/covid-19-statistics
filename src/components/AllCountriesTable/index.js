@@ -1,5 +1,6 @@
 import React, {useEffect, useState, useMemo} from 'react';
 import {useTable, useSortBy} from 'react-table';
+import {Link} from 'react-router-dom';
 import emojiFlags from 'emoji-flags';
 
 import getData from '../../api';
@@ -26,6 +27,14 @@ export default function AllCountriesTable() {
           {
             Header: 'Country',
             accessor: 'name',
+            Cell: ({row}) => (
+              <Link
+                to={{
+                  pathname: '/country/' + `${row.values.code}`,
+                }}>
+                {`${emojiFlags[row.values.code].emoji}${row.values.name}`}
+              </Link>
+            ),
           },
           {
             Header: 'Deaths per population (%)',
@@ -73,13 +82,9 @@ export default function AllCountriesTable() {
     setLoading(false);
   };
 
-  // @todo refactor into separate components
-  // @todo fix sorting
-  // @todo load country screen when user click country
-
   return (
     <div>
-      <h1>Covid-19 Statistics</h1>
+      <h1>Covid-19 Death per Capita</h1>
       {loading && <LoadingSpinner />}
       {data && data.length > 0 && (
         <TableContainer>
@@ -112,9 +117,7 @@ export default function AllCountriesTable() {
                     {row.cells.map((cell, k) => {
                       return (
                         <td key={k} {...cell.getCellProps()}>
-                          {cell.column.id === 'name' &&
-                            emojiFlags[cell.row.values.code].emoji}
-                          {cell.value}
+                          {cell.render('Cell')}
                         </td>
                       );
                     })}
