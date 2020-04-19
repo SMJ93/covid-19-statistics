@@ -33,9 +33,10 @@ export const TableContainer = styled.div`
   }
 
   .link-container {
-    width: 100px;
-    @media (min-width: 800px) {
-      width: 200px;
+    width: 200px;
+    @media (max-width: 800px) {
+      width: 100px;
+      white-space: normal;
     }
   }
 `;
