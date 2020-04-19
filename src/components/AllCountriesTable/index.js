@@ -5,6 +5,7 @@ import emojiFlags from 'emoji-flags';
 
 import {getAllCountries} from '../../api';
 import {LoadingSpinner} from '../../component-library';
+import {numberWithCommas} from '../../helpers';
 import {TableContainer} from './styles';
 
 export default function AllCountriesTable() {
@@ -43,14 +44,16 @@ export default function AllCountriesTable() {
           {
             Header: 'Population',
             accessor: 'population',
+            Cell: ({row}) => (
+              <span>{numberWithCommas(row.values.population)}</span>
+            ),
           },
           {
             Header: 'Deaths',
             accessor: 'totalDeaths',
-          },
-          {
-            Header: 'Last updated',
-            accessor: 'lastUpdated',
+            Cell: ({row}) => (
+              <span>{numberWithCommas(row.values.totalDeaths)}</span>
+            ),
           },
         ],
       },
@@ -86,46 +89,49 @@ export default function AllCountriesTable() {
     <div>
       {loading && <LoadingSpinner />}
       {data && data.length > 0 && (
-        <TableContainer>
-          <table {...getTableProps()} align="center">
-            <thead>
-              {headerGroups.map((headerGroup, i) => (
-                <tr key={i} {...headerGroup.getHeaderGroupProps()}>
-                  {headerGroup.headers.map((column, k) => (
-                    <th key={k} {...column.getHeaderProps()}>
-                      <div>
-                        <span {...column.getSortByToggleProps()}>
-                          {column.render('Header')}
-                          {column.isSorted
-                            ? column.isSortedDesc
-                              ? ' 🔽'
-                              : ' 🔼'
-                            : ''}
-                        </span>
-                      </div>
-                    </th>
-                  ))}
-                </tr>
-              ))}
-            </thead>
-            <tbody {...getTableBodyProps()}>
-              {rows.map((row, i) => {
-                prepareRow(row);
-                return (
-                  <tr key={i} {...row.getRowProps()}>
-                    {row.cells.map((cell, k) => {
-                      return (
-                        <td key={k} {...cell.getCellProps()}>
-                          {cell.render('Cell')}
-                        </td>
-                      );
-                    })}
+        <>
+          <p>Last updated: {data[0].lastUpdated}</p>
+          <TableContainer>
+            <table {...getTableProps()} align="center">
+              <thead>
+                {headerGroups.map((headerGroup, i) => (
+                  <tr key={i} {...headerGroup.getHeaderGroupProps()}>
+                    {headerGroup.headers.map((column, k) => (
+                      <th key={k} {...column.getHeaderProps()}>
+                        <div>
+                          <span {...column.getSortByToggleProps()}>
+                            {column.render('Header')}
+                            {column.isSorted
+                              ? column.isSortedDesc
+                                ? ' 🔽'
+                                : ' 🔼'
+                              : ''}
+                          </span>
+                        </div>
+                      </th>
+                    ))}
                   </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </TableContainer>
+                ))}
+              </thead>
+              <tbody {...getTableBodyProps()}>
+                {rows.map((row, i) => {
+                  prepareRow(row);
+                  return (
+                    <tr key={i} {...row.getRowProps()}>
+                      {row.cells.map((cell, k) => {
+                        return (
+                          <td key={k} {...cell.getCellProps()}>
+                            {cell.render('Cell')}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </TableContainer>
+        </>
       )}
     </div>
   );

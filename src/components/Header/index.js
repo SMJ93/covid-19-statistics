@@ -17,7 +17,7 @@ export default function HeaderComponent() {
         <OuterColumn>
           {showBackHomeButton && (
             <button type="button" onClick={goHome}>
-              Back Home
+              Back
             </button>
           )}
         </OuterColumn>

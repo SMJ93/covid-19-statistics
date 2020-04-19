@@ -6,13 +6,10 @@ Special thanks to [about-corona.net](https://about-corona.net/documentation) for
 
 ## Roadmap 🗺️
 
-- Fix home page table sorting
 - Format timeline data and add graph of timeline to countries screen
 - Refactor `AllCountriesTable` to `Table` so its more modular
   - Move get request to home screen, then we can re-use for favourites table
 - Make it look pretty
-- Favourite countries
-- Filter which fields you want to see on home screen
 
 ## Running locally 🛠️
 

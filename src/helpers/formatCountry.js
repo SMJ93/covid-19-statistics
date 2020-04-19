@@ -1,4 +1,3 @@
-import numberWithCommas from './numberWithCommas';
 import roundDecimals from './roundDecimals';
 
 export default function formatCountry({
@@ -40,26 +39,25 @@ export default function formatCountry({
   return {
     name,
     code,
-    population: numberWithCommas(population),
+    population: population,
     lastUpdated,
     todaysFiguresHaveBeenPublished,
-    todaysDeaths: numberWithCommas(today.deaths),
-    todaysConfirmed: numberWithCommas(today.confirmed),
-    totalDeaths: numberWithCommas(totalDeaths),
-    totalConfirmed: numberWithCommas(latest_data.confirmed),
-    totalRecovered: numberWithCommas(latest_data.recovered),
-    totalCritical: numberWithCommas(latest_data.critical),
+    todaysDeaths: today.deaths,
+    todaysConfirmed: today.confirmed,
+    totalDeaths: totalDeaths,
+    totalConfirmed: latest_data.confirmed,
+    totalRecovered: latest_data.recovered,
+    totalCritical: latest_data.critical,
     deathRate: roundDecimals(latest_data.calculated.death_rate, 2),
     totalDeathsPerPopulation: totalDeathsPerPopulation,
     totalDeathsPerPopulationPercentage: roundDecimals(
       totalDeathsPerPopulationPercentage,
       6,
     ),
-    totalDeathsPerMillion: numberWithCommas(
-      roundDecimals(totalDeathsPerMillion, 2),
-    ),
-    totalDeathsPerHundredThousand: numberWithCommas(
-      roundDecimals(totalDeathsPerHundredThousand, 2),
+    totalDeathsPerMillion: roundDecimals(totalDeathsPerMillion, 2),
+    totalDeathsPerHundredThousand: roundDecimals(
+      totalDeathsPerHundredThousand,
+      2,
     ),
   };
 }
